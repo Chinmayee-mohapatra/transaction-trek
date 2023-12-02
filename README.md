@@ -23,11 +23,11 @@ Live: [Transaction Trek](https://transaction-trek.vercel.app/)
   - Features an insightful pie chart (utilizing recharts) illustrating the distribution of posts by userID=1 versus total posts.
     ![Data page](image-2.png)
 
-## Getting Started with Create React App
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
