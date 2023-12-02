@@ -24,6 +24,11 @@ Live: [Transaction Trek](https://transaction-trek.vercel.app/)
 
 ![Data page](image-2.png)
 
+- **Page Not Found:**
+  - For invalid routing path shows error message
+
+![Error Page](image-3.png)
+
 ### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
