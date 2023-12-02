@@ -8,6 +8,7 @@ const Transaction = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  // onSubmit of form, checking input field validations before quering the database.
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -16,12 +17,14 @@ const Transaction = () => {
       return;
     }
 
+    // Using regular expression to match the user input wallet address
     const ethAddressRegex = /^0x[a-fA-F0-9]{40}$/;
     if (!ethAddressRegex.test(walletAddress)) {
       setError("Invalid Ethereum address format");
       return;
     }
 
+    // Checking if the amount entered is a valid number in the given range
     const amountNumber = Number(amount);
     if (isNaN(amountNumber) || amountNumber < 0 || amountNumber > 10000) {
       setError("Amount must be a number between 0 and 10,000");
@@ -29,12 +32,15 @@ const Transaction = () => {
     }
 
     try {
+      // Quering the database to check if wallet addresss is already present.
       const dbDocs = await getDocs(
         query(
           collection(db, "transaction-details"),
           where("walletAddress", "==", walletAddress)
         )
       );
+
+      // Only if the wallet address is unique then only add the transaction to the firestore database
       if (!dbDocs.empty) {
         setError("Wallet address already exists!");
       } else {
@@ -43,13 +49,14 @@ const Transaction = () => {
           amount: amount,
         });
         // console.log("Document written with ID: ", docRef.id);
-        // Handle successful submission
+        // On successful submission, show success message and make the input fields empty.
         setSuccess("Transaction created successfully");
         setWalletAddress("");
         setAmount("");
         setError("");
       }
     } catch (err) {
+      // Handle error if any
       setError(err.message, "Failed to submit data. Please try again.");
     }
   };
@@ -75,7 +82,7 @@ const Transaction = () => {
           onChange={(e) => setAmount(e.target.value)}
           className="border-2 border-slate-400 rounded-sm p-2"
         />
-        {/* Error message display */}
+        {/* Error or Success message */}
         {error && (
           <p className="mx-auto text-red-600 text-lg font-semibold">{error}</p>
         )}

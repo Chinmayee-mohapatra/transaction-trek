@@ -6,6 +6,7 @@ const Data = () => {
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [error, setError] = useState("");
 
+  // Code to fetch data from API, during initial component render.
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -15,7 +16,7 @@ const Data = () => {
         const data = await response.json();
         setPosts(data);
       } catch (err) {
-        // Handle error fetching data
+        // Handle error while fetching data
         setError(err.message);
       }
     };
@@ -23,19 +24,20 @@ const Data = () => {
     fetchData();
   }, []);
 
+  // Code to filter the posts recieved from the API based
+  // Filtering done based on userID.
   useEffect(() => {
     const filtered = posts.filter((post) => post.userId === 1);
     setFilteredPosts(filtered);
   }, [posts]);
 
-  // Code for displaying filtered posts in a table
-
-  // Code for generating data for the pie chart
+  // Code for generating data for the pie-chart.
   const dataForPieChart = [
     { name: "UserID 1", value: filteredPosts.length, fill: "#8884d8" },
     { name: "Total posts", value: posts.length, fill: "#82ca9d" },
   ];
 
+  // Handling user experience: if state variable does not have data yet then show the "Loading!!!" text. Else show data.
   return filteredPosts.length === 0 ? (
     <p className="text-center h-[20vh] text-2xl text-green-950 font-semibold tracking-wider py-10">
       Loading !!!
@@ -83,7 +85,7 @@ const Data = () => {
         </div>
       )}
 
-      {/* Pie-chart */}
+      {/* Rendering Pie-chart */}
       <div className="w-full flex flex-col my-10 justify-center items-center">
         <p className=" text-2xl font-semibold">Pie-chart</p>
         <p className="mt-2 px-4 text-justify">
