@@ -21,7 +21,8 @@ Live: [Transaction Trek](https://transaction-trek.vercel.app/)
   - Fetches data from API to display post details for userID=1.
   - Presents a comprehensive table showcasing user-specific posts.
   - Features an insightful pie chart (utilizing recharts) illustrating the distribution of posts by userID=1 versus total posts.
-    ![Data page](image-2.png)
+
+![Data page](image-2.png)
 
 ### Getting Started with Create React App
 
