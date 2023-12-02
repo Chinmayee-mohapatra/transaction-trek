@@ -4,25 +4,24 @@ Welcome to our application! We specialize in meticulous transaction tracking, ca
 
 Live: [Transaction Trek](https://transaction-trek.vercel.app/)
 
-![Home page](image.png)
-
 - **Home Page:**
   - Overview hub for the application.
   - Navigation header facilitates seamless transition to other pages.
 
-![Transaction page](image-1.png)
+![Home page](image.png)
 
 - **Transaction Page:**
   - Enables input of valid wallet address and amount.
   - Stores details in Firestore Cloud with a unique document reference ID.
   - Form validation ensures valid wallet address, proper amount range, and restricts blank submissions.
 
-![Data page](image-2.png)
+![Transaction page](image-1.png)
 
 - **Data Page:**
   - Fetches data from API to display post details for userID=1.
   - Presents a comprehensive table showcasing user-specific posts.
   - Features an insightful pie chart (utilizing recharts) illustrating the distribution of posts by userID=1 versus total posts.
+    ![Data page](image-2.png)
 
 ## Getting Started with Create React App
 
